@@ -101,12 +101,14 @@ client = OpenAI(
 
 
 # 初始化 session_state
-if 'topic_list' not in st.session_state:
-    st.session_state.topic_list = []
+if 'discovered_topics_text' not in st.session_state:
+    st.session_state.discovered_topics_text = ""
 if 'selected_topic' not in st.session_state:
     st.session_state.selected_topic = None
 if 'research_result' not in st.session_state:
     st.session_state.research_result = {}
+if 'field_selection' not in st.session_state:
+    st.session_state.field_selection = "自動探索當前美股熱門議題" # 預設值
 
 
 # 儲存研究結果的檔案
@@ -498,3 +500,4 @@ with tab3:
                         st.markdown(video_script)
                 else:
                     st.error("腳本生成失敗，請稍後再試。")
+
